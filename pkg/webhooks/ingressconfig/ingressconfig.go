@@ -18,7 +18,7 @@ import (
 
 const (
 	WebhookName     string = "ingress-config-validation"
-	privilegedUsers string = `system:admin`
+	privilegedUsers string = `^(system:admin|system:hosted-cluster-config)`
 	docString       string = `Managed OpenShift customers may not modify ingress config resources because it can can degrade cluster operators and can interfere with OpenShift SRE monitoring.`
 )
 

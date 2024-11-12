@@ -43,6 +43,17 @@ func TestAuthorized(t *testing.T) {
 			ExpectAllowed: true,
 		},
 		{
+			Name: "hosted cluster config operator should be allowed",
+			Request: admissionctl.Request{
+				AdmissionRequest: admissionv1.AdmissionRequest{
+					UserInfo: authenticationv1.UserInfo{
+						Username: "system:hosted-cluster-config",
+					},
+				},
+			},
+			ExpectAllowed: true,
+		},
+		{
 			Name: "non-privileged account should be denied",
 			Request: admissionctl.Request{
 				AdmissionRequest: admissionv1.AdmissionRequest{
